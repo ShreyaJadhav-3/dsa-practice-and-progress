@@ -1,0 +1,24 @@
+Problem: Remove Element
+Topic: Arrays, Two Pointers
+Difficulty: Easy
+
+Approach:
+Traverse the array and overwrite elements not equal to the given value using a pointer k. Increment k only when a valid element is found, effectively compacting the array in-place.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Code:
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+      int k=0;
+      for( int i=0;i<nums.size();i++){
+      if(nums[i]!=val){
+        nums[k]=nums[i];
+        k++;
+      }
+    }
+    return k;
+    }
+};
