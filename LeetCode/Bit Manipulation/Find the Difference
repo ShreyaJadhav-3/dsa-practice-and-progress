@@ -1,0 +1,61 @@
+Problem: Find the Difference
+Topic: Strings, Bit Manipulation
+Difficulty: Easy
+
+Approach 1 (Sorting):
+Sort both strings and compare characters one by one to find the mismatch.
+Time Complexity: O(n log n)
+Space Complexity: O(1)
+
+Approach 2 (XOR):
+Apply XOR on all characters of both strings. Duplicate characters cancel out, leaving the extra character.
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Approach 3 (Sum Difference):
+Compute the difference between ASCII sums of both strings to get the extra character.
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Code:
+//sorting method
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        sort(s.begin(),s.end());
+        sort(t.begin(),t.end());
+        int n=t.size();
+        for(int i=0;i<n;i++){
+            if(s[i]!=t[i]){
+                return t[i];
+                 }
+        }
+        return t[n-1];
+    }
+};
+
+//XOR method
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+    int res=0;
+    for(char c:s){
+        res^=c;
+    }
+    for(char c:t){
+        res^=c;
+    }
+    return res;
+    }
+};
+
+//Sum difference method
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+    int sum=0;
+    for(char c:t) sum+=c;
+    for(char c:s) sum-=c;
+       return char(sum);
+    }
+};
