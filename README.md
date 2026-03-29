@@ -1,57 +1,73 @@
-# Competitive Programming Contests
+# DSA Journey & Competitive Programming
 
 ## Overview
-This repository contains my solutions to coding contests from platforms like LeetCode and CodeChef. It serves as a record of my participation, performance, and learning during competitive programming contests.
-The goal is to improve problem-solving speed, accuracy, and understanding of advanced DSA concepts.
+This repository contains my journey of learning and practicing Data Structures and Algorithms. It includes problems solved from platforms like LeetCode and CodeChef, along with solutions from coding contests.
+The aim is to build strong problem-solving skills, improve coding efficiency, and prepare for technical interviews.
 
 ## Platforms
-* LeetCode Contests (Weekly & Biweekly)
-* CodeChef Contests (Starters, Long Challenge)
-
-
-## Profiles
-LeetCode: https://leetcode.com/u/Shreya_Jadhav_/
-
-CodeChef: https://www.codechef.com/users/shreya_j_7036
-
-## Repository Structure
 
 ### LeetCode
-* Weekly Contest
-* Biweekly Contest
+I regularly solve problems covering different topics and difficulty levels.
+
+Profile: https://leetcode.com/u/Shreya_Jadhav_/
 
 ### CodeChef
-* Starters
-* Long Challenge
+I practice problems and participate in contests to improve speed and accuracy.
 
-Each contest folder contains:
-* Problem solutions
-* Approach used
+Profile: https://www.codechef.com/users/shreya_j_7036
+
+## Repository Structure
+The repository is organized for better understanding and easy navigation:
+
+* **LeetCode/**
+  * Topic-wise folders (Arrays, Strings, Trees, etc.)
+  * Each topic contains:
+    * Easy
+    * Medium
+    * Hard
+
+* **CodeChef/**
+  * Topic-wise problems
+  * Contest solutions:
+    * Starters
+    * Long Challenge
+
+* **Contests/**
+  * Solutions from LeetCode Weekly/Biweekly contests
+  * CodeChef contest problems
+
+## What Each Solution Contains
+* Problem name
+* Platform
+* Topic
+* Difficulty level
+* Approach
 * Time and space complexity
-* Notes on optimization
+* Clean and readable code
 
-## Example
-```cpp id="xl6bhh"
-// Platform: LeetCode Weekly Contest 420
-// Problem: Q2
-// Approach: Greedy + Sorting
-// Time Complexity: O(n log n)
-```
+## Topics Covered
+* Arrays
+* Strings
+* Linked List
+* Stack and Queue
+* Trees
+* Graphs
+* Dynamic Programming
+* Recursion and Backtracking
 
-## Contest Log
+## Competitive Programming
+I actively participate in coding contests to improve problem-solving speed and real-time thinking.
+* LeetCode Weekly & Biweekly Contests
+* CodeChef Starters and other contests
+Contest solutions are included to track performance and learning.
 
-### LeetCode Weekly Contest
-* Regular participation
-* Focus on improving ranking and problem-solving speed
-
-### CodeChef Starters
-* Solving multiple problems per contest
-* Improving consistency and accuracy
-
-## Learning Outcomes
-* Improved speed in solving problems under time constraints
-* Better understanding of DSA patterns
-* Experience with real contest environment
+## Progress
+* Regular problem-solving practice
+* Consistent participation in contests
+* Focus on optimization and pattern recognition
 
 ## Goal
-To consistently participate in contests and improve ranking while mastering advanced problem-solving techniques.
+To master Data Structures and Algorithms and become confident in solving interview-level and real-world problems efficiently.
+
+## Note
+This repository is continuously updated as I solve more problems and participate in more contests.
