@@ -1,0 +1,24 @@
+Problem: Missing Number
+Topic: Arrays, Math
+Difficulty: Easy
+Approach:
+Sort the array and compute the expected sum of numbers from 0 to n using the formula n(n+1)/2. Then calculate the actual sum of the array elements and subtract it from the expected sum to get the missing number.
+Time Complexity: O(n log n)
+Space Complexity: O(1)
+
+Code:
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n=nums.size();
+        sort(nums.begin(),nums.end());
+        int expected_sum=(n*(n+1))/2;
+        int got_sum=0;
+        for(int i=0;i<n;i++){
+        got_sum+=nums[i];
+    }
+    int missing_num=expected_sum-got_sum;
+    // cout<<missing_num<<endl;
+    return missing_num;
+    }
+};
