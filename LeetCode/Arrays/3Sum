@@ -1,0 +1,59 @@
+// Problem: 3Sum
+// Link: https://leetcode.com/problems/3sum/
+// Topic: Arrays, Two Pointers
+// Difficulty: Medium
+
+// Approach:
+// 1. Sort the array.
+// 2. Fix one element and use two pointers (j and k) to find pairs such that sum = 0.
+// 3. Use a set to store unique triplets to avoid duplicates.
+// 4. Skip duplicate elements to optimize.
+
+// Time Complexity: O(n^2)
+// Space Complexity: O(n) (due to set)
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> result;
+        set<vector<int>> uniquetriplet;
+        int n = nums.size();
+
+        sort(nums.begin(), nums.end());
+
+        for(int i = 0; i < n - 2; i++){
+            if(i > 0 && nums[i] == nums[i - 1]) continue;
+
+            int j = i + 1;
+            int k = n - 1;
+
+            while(j < k){
+                int sum = nums[i] + nums[j] + nums[k];
+
+                if(sum == 0){
+                    uniquetriplet.insert({nums[i], nums[j], nums[k]});
+                    j++;
+                    k--;
+
+                    while(j < k && nums[j] == nums[j - 1]) j++;
+                    while(j < k && nums[k] == nums[k + 1]) k--;
+                }
+                else if(sum < 0){
+                    j++;
+                }
+                else{
+                    k--;
+                }
+            }
+        }
+
+        for(const auto& triplet : uniquetriplet){
+            result.push_back(triplet);
+        }
+
+        return result;
+    }
+};
