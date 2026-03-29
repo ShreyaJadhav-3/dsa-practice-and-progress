@@ -1,0 +1,26 @@
+Problem: Climbing Stairs
+Topic: Dynamic Programming
+Difficulty: Easy
+
+Approach:
+Use iterative dynamic programming (Fibonacci pattern). Each step count is the sum of ways to reach the previous two steps.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Code:
+class Solution {
+public:
+    int climbStairs(int n) {
+        if(n<=2)   return n;
+        int curr;
+        int s1=1;
+        int s2=2;
+        for(int i=3;i<=n;i++){
+            curr=s1+s2;
+            s1=s2;
+            s2=curr;
+        }
+        return s2;
+    }
+};
