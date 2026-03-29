@@ -1,0 +1,27 @@
+Problem: Length of Last Word
+Topic: Strings
+Difficulty: Easy
+
+Approach:
+Traverse the string from the end, skip trailing spaces, then count characters until the next space or beginning of the string is reached.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Code:
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        //we have to consider about spaces too
+        int i= s.size()-1;   //i==for last string
+        int len=0;
+        while(i>=0 && s[i]==' '){
+            i--;
+        }
+        while(i>=0 && s[i]!=' '){
+            len++;
+            i--;
+        }        
+        return len;
+    }
+};
