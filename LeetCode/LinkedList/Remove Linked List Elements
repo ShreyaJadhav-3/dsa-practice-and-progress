@@ -1,0 +1,52 @@
+Problem: Remove Linked List Elements
+Topic: Linked List
+Difficulty: Easy
+
+Approach:
+First remove all leading nodes with the target value. Then traverse the list and remove matching nodes by adjusting pointers, ensuring proper deletion without breaking the list.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Code:
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+       //Removing leading nodes:
+       //head is used inside the loop to avoid whether head is NULL or not :
+        while(head && head->val==val){
+            ListNode* temp=head;
+            head=head->next;
+            delete temp;
+        }
+        //If list becomes empty then
+        if(!head){
+            return NULL;
+        }
+        //Traverse and removing the matching nodes:
+        //curr is used for traversing
+         ListNode* curr=head;
+        while(curr && curr->next){
+            if(curr->next->val==val){
+
+                ListNode* temp=curr->next;
+                curr->next=curr->next->next;
+                delete temp;
+            }
+            else{
+          curr=curr->next;
+        }
+        }
+       return head;
+    }
+};
