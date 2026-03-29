@@ -1,0 +1,30 @@
+Problem: Longest Common Prefix
+Topic: Strings
+Difficulty: Easy
+
+Approach:
+Sort the array of strings and compare only the first and last strings. The common prefix between them will be the longest common prefix for all strings.
+
+Time Complexity: O(n log n + m)
+Space Complexity: O(1)
+
+Code:
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        if(strs.empty()){  return "";}
+        sort(strs.begin(),strs.end());    //sorting both the arrays coz we will check only first and last string 
+        string first=strs[0];
+        string last=strs[strs.size()-1];
+        string result="";
+        for(int i=0;i<min(first.size(),last.size());i++){
+            if(first[i]==last[i]){
+                result+=first[i];
+            }
+            else{
+                break;
+            }
+        }
+        return result;  
+    }
+};
