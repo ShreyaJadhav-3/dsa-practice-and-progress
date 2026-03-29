@@ -1,0 +1,54 @@
+Problem: Easy Pronunciation
+Topic: Strings
+Difficulty: Easy
+
+Approach:
+Traverse the string and count consecutive consonants. Reset the count when a vowel appears. If at any point the count reaches 4 or more, the word is hard to pronounce.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Code:
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+    int t;
+    cin>>t;
+    
+    while(t--)
+      {
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        int consecutive_cons=0;        
+        bool hardToPronuonce=false;
+        
+        for(char ch :s){
+        if(ch!='a' && ch!='e' && ch!='i' && ch!='o' && ch!='u')
+          {
+            consecutive_cons++;
+            if(consecutive_cons>=4)
+              {
+                 hardToPronuonce=true;
+                 break;
+              }
+                      }
+            else
+              {
+                 consecutive_cons=0;
+              }
+          }
+           if(hardToPronuonce)
+              {
+                 cout<<"NO"<<endl;
+              }
+           else
+              {
+                 cout<<"YES"<<endl;
+              }
+      }
+  return 0;    
+}
