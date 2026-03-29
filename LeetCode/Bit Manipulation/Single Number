@@ -1,0 +1,19 @@
+Problem: Single Number
+Topic: Arrays, Bit Manipulation
+Difficulty: Easy
+Approach:
+Use XOR operation on all elements. Since a ^ a = 0 and a ^ 0 = a, all duplicate numbers cancel out, leaving only the single number.
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Code:
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+       int res=0;
+       for(int num: nums){
+        res=res^num;  //res^=num
+       }
+       return res;
+    }
+};
