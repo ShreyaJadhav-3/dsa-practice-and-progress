@@ -1,0 +1,35 @@
+Problem: Reverse Linked List
+Topic: Linked List
+Difficulty: Easy
+
+Approach:
+Iteratively reverse the linked list by changing the next pointer of each node to point to its previous node while traversing the list.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Code:
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+    ListNode* prev=NULL;
+    ListNode* curr=head;
+    while(curr){
+        ListNode* nn=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=nn;
+    }    
+    return prev;
+    }
+};
