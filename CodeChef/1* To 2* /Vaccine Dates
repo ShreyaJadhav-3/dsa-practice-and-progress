@@ -1,0 +1,38 @@
+Problem: Vaccine Dates
+Topic: Implementation
+Difficulty: Easy
+
+Approach:
+Compare the given day with the allowed range 
+[
+𝑙
+,
+𝑟
+]
+[l,r]. If the day is before the range, it is too early; if after, it is too late; otherwise, it is the correct time to take the dose.
+
+Time Complexity: O(1)
+Space Complexity: O(1)
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+    int t=0;
+    cin>>t;
+    while(t--){
+        int d,l,r;
+        cin>>d>>l>>r;
+        if(d>r)
+            cout<<"Too Late"<<endl;
+        
+        else if(d<l)
+            cout<<"Too Early"<<endl;
+        
+        else
+            cout<<"Take second dose now"<<endl;
+        
+    }
+    return 0;
+}
