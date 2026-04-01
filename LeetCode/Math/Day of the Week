@@ -1,0 +1,27 @@
+Problem: Day of the Week
+Topic: Math
+Difficulty: Easy
+Approach:
+Use Zeller’s Congruence formula to compute the day of the week. Adjust January and February as months 13 and 14 of the previous year, then calculate the day index and map it to the corresponding weekday.
+Time Complexity: O(1)
+Space Complexity: O(1)
+
+Code:
+class Solution {
+public:
+    string dayOfTheWeek(int day, int month, int year) {
+        if(month<3){
+            month+=12;
+            year-=1;
+        }
+        //Zeller's Congruence formula:
+        //January and February are considered the last months of the previous year
+        int k=year%100; //yr within the century
+        int j=year/100;
+        int f=day+((13*(month+1))/5)+k+(k/4)+(j/4)-(2*j);
+
+        int dayofWeek=(f%7+7)%7;
+        string days[]={"Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+        return days[dayofWeek];
+    }
+};
