@@ -1,0 +1,46 @@
+Problem: Chef and Two Strings
+Topic: Strings
+Difficulty: Easy
+Approach:
+Traverse both strings simultaneously. 
+Count positions where characters differ without '?' (fixed differences) and positions where at least one character is '?' (flexible differences). 
+Minimum differences come from fixed mismatches, and maximum differences include all flexible positions.
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Code:
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+    int t;
+    cin>>t;
+    while(t--){
+        string s1,s2;
+        cin>>s1>>s2;
+        int count_diff=0;   //count of i's in s1 and s2 which are already different where neither s1[i] and s2[i] are '?'
+        int count_quemark=0; //count of i's in s1 and s2 where either s1[i] or s2[i] are '?'
+        
+        for(int i=0;i<s1.length();i++){
+                if(s1[i]!=s2[i]){
+                  if(s1[i]=='?' || s2[i]=='?'){
+                       count_quemark++;
+                  }
+                  else{
+                       count_diff++;
+                  }
+            }
+            else{
+                if(s1[i]=='?' || s2[i]=='?'){
+                       count_quemark++;
+                }
+            }
+        }
+        
+        int min_diff=count_diff;
+        int max_diff=count_diff+count_quemark;
+        cout<<min_diff<<" "<<max_diff<<endl;
+    }
+    return 0;
+}
