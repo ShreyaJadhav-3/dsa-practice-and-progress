@@ -1,0 +1,28 @@
+Problem: Subarray Sum Equals K
+Topic: Arrays, Prefix Sum
+Difficulty: Medium
+Approach:
+Use a nested loop to consider all subarrays. For each starting index, keep adding elements and check if the sum equals k. Increment count whenever the sum matches k.
+Time Complexity: O(n²)
+Space Complexity: O(1)
+
+Code:
+class Solution {
+public:
+         int subarraySum(vector<int>& nums, int k) {
+         int count = 0;
+         int n=nums.size();
+         int i,j;
+         for(i=0;i<n;i++){
+            int new_sum=0;
+         for(j=i;j<n;j++){
+            new_sum+=nums[j];
+
+            if(new_sum==k){
+                count++;
+            }
+         }
+         }
+       return count;
+         }
+};
