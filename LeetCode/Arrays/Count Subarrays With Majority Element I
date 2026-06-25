@@ -1,1 +1,37 @@
+//Problem: Count Subarrays With Majority Element I
+//Topic: Arrays
+//Difficulty: Medium
+
+//Approach:
+//Consider every possible subarray using two nested loops. For each subarray, count the occurrences of the target element and the total number of elements. If the target appears more than half the length of the subarray, increment the answer.
+
+//Time Complexity: O(n²)
+//Space Complexity: O(1)
+
+//Code:
+
+class Solution {
+public:
+    int countMajoritySubarrays(vector<int>& nums, int target) {
+        int count=0;
+        int n=nums.size();
+
+        for(int start=0;start<n;start++){
+            int targetcount=0;
+            int totalcount=0;
+
+        for(int end=start;end<n;end++){
+            if(nums[end]==target){
+                targetcount++;
+            }
+            totalcount++;
+
+            if(targetcount>(totalcount/2)){
+                count++;
+            }
+        }
+        }
+        return count;
+    }
+};
 
