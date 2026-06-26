@@ -1,0 +1,35 @@
+Problem: Find the Index of the First Occurrence in a String
+Topic: Strings
+Difficulty: Easy
+
+Approach:
+Traverse the haystack string and, for each possible starting position, compare the characters with the needle string. If all characters match, return the starting index. If no match is found after checking all possible positions, return -1.
+
+Time Complexity: O((n − m + 1) × m) ≈ O(n × m)
+Space Complexity: O(1)
+
+Code:
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if(needle.empty()){
+            return 0;
+        }
+       
+     int l1=haystack.length();
+     int l2=needle.length();
+
+     for(int i=0;i<=l1-l2;i++){
+        int j;
+        for(j=0;j<l2;j++){
+            if(haystack[i+j]!=needle[j]){
+                break;
+            }
+        }
+        if(j==l2){
+            return i;
+        }
+     }
+     return -1;
+    }
+};
