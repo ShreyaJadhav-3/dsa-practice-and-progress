@@ -1,0 +1,32 @@
+Problem: Majority Element II
+Topic: Arrays, HashMap
+Difficulty: Medium
+
+Approach:
+Use a hash map to count the frequency of each element in the array. After counting, traverse the map and add all elements whose frequency is greater than ⌊n/3⌋ to the result vector.
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+Code:
+
+class Solution {
+public:
+    vector<int> majorityElement(vector<int>& nums) {
+        unordered_map<int,int> mp;
+        int n=nums.size();
+        vector<int> final_arr;
+
+        for(int x:nums){
+            mp[x]++;
+        }
+
+        for(auto it:mp){
+            if(it.second>n/3){
+                final_arr.push_back(it.first);
+            }
+        }
+
+        return final_arr;
+    }
+};
