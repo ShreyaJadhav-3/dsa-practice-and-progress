@@ -1,0 +1,38 @@
+Problem: Most Frequent Even Element
+Topic: Arrays, HashMap
+Difficulty: Easy
+
+Approach:
+Use a hash map to count the frequency of only the even elements in the array. Then, traverse the map to find the element with the highest frequency. If multiple elements have the same maximum frequency, return the smallest even element. If no even element exists, return -1.
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+Code:
+class Solution {
+public:
+    int mostFrequentEven(vector<int>& nums) {
+        unordered_map<int,int> mp;
+        int n=nums.size();
+
+        for(int x:nums){
+            if(x%2==0){
+            mp[x]++;
+            }
+        }
+        
+        int ans=-1;
+        int max_freq=0;
+
+        for(auto it:mp){
+            if(it.second>max_freq){
+                max_freq=it.second;
+                ans=it.first;
+            }
+            else if(it.second==max_freq && it.first<ans){
+                ans=it.first;
+            }
+        }
+        return ans;
+    }
+};
