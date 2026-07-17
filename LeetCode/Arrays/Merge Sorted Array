@@ -1,0 +1,44 @@
+Problem: Merge Sorted Array
+Topic: Arrays, Two Pointers
+Difficulty: Easy
+
+Approach:
+Use two pointers to traverse both sorted arrays and merge their elements into a temporary array in sorted order. Once all elements are merged, copy the temporary array back to nums1.
+
+Time Complexity: O(m + n)
+Space Complexity: O(m + n)
+
+Code:
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int> merged_arr;
+            int i=0,j=0;
+        if(m==0){
+            nums1=nums2;
+            return;
+        }
+        else if(n==0){
+            return;
+        }
+        while(i<m && j<n){
+            if(nums1[i]<nums2[j]){
+                merged_arr.push_back(nums1[i]);
+                i++;
+            }
+            else{
+                merged_arr.push_back(nums2[j]);
+                j++;
+            }
+        }
+        while(i<m ){
+                merged_arr.push_back(nums1[i]);
+                i++;
+        }
+        while(j<n ){
+                merged_arr.push_back(nums2[j]);
+                j++;
+        }
+    nums1=merged_arr;
+    }
+};
