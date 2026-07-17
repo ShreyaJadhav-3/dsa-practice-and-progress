@@ -1,0 +1,35 @@
+Problem: Top K Frequent Elements
+Topic: Arrays, HashMap, Sorting
+Difficulty: Medium
+
+Approach:
+Use a hash map to count the frequency of each element. Store each element as a pair (frequency, value) in a vector, sort the vector in descending order of frequency, and return the first k elements.
+
+Time Complexity: O(n + m log m), where m is the number of unique elements
+Space Complexity: O(m)
+
+Code:
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        int n=nums.size();
+        unordered_map<int,int> mp;
+
+        for(int x:nums){
+            mp[x]++;
+        }
+
+        vector<pair<int,int>> freq;
+        for(auto it:mp){
+            freq.push_back({it.second,it.first});
+        }
+        
+        sort(freq.rbegin(),freq.rend());
+        vector<int> ans;
+        for(int i=0;i<k;i++){
+           ans.push_back(freq[i].second);
+        }
+
+    return ans;
+    }
+};
