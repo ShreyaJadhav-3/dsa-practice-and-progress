@@ -1,0 +1,24 @@
+Problem: Make Array Zero by Subtracting Equal Amounts
+Topic: Arrays, HashSet
+Difficulty: Easy
+
+Approach:
+Store all distinct non-zero elements in a hash set. Each unique non-zero value requires one operation to eliminate, so the minimum number of operations is equal to the number of distinct non-zero elements.
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+Code:
+class Solution {
+public:
+    int minimumOperations(vector<int>& nums) {
+        unordered_set<int> st;
+
+        for(int x:nums){
+            if(x!=0){
+                st.insert(x);
+            }
+        }
+        return st.size();
+    }
+};
