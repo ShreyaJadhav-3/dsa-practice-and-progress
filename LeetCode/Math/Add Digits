@@ -1,0 +1,25 @@
+Problem: Add Digits
+Topic: Math, Simulation
+Difficulty: Easy
+
+Approach:
+Repeatedly calculate the sum of the digits of the number until it becomes a single-digit number. In each iteration, extract digits using the modulo (%) and division (/) operators, compute their sum, and update the number with this sum.
+
+Time Complexity: O(log n)
+Space Complexity: O(1)
+
+Code:
+class Solution {
+public:
+    int addDigits(int num) {
+        while(num>9){
+            int sum=0;
+            while(num>0){
+                sum+=num%10;
+                num/=10;
+            }
+            num=sum;
+        }
+        return num;
+    }
+};
