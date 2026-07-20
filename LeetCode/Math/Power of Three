@@ -1,0 +1,23 @@
+Problem: Power of Three
+Topic: Math
+Difficulty: Easy
+
+Approach:
+If n is less than or equal to 0, return false. Otherwise, repeatedly divide n by 3 while it is divisible by 3. If the final value becomes 1, then n is a power of three; otherwise, it is not.
+
+Time Complexity: O(log₃ n)
+Space Complexity: O(1)
+
+Code:
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        if(n<=0){
+            return false;
+        }
+        while(n%3==0){
+            n/=3;
+        }
+        return n==1;
+    }
+};
