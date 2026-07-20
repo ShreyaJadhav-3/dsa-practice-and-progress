@@ -1,0 +1,23 @@
+Problem: Power of Four
+Topic: Math
+Difficulty: Easy
+
+Approach:
+If n is less than or equal to 0, return false. Otherwise, repeatedly divide n by 4 while it is divisible by 4. If the final value becomes 1, then n is a power of four; otherwise, it is not.
+
+Time Complexity: O(log₄ n)
+Space Complexity: O(1)
+
+Code:
+class Solution {
+public:
+    bool isPowerOfFour(int n) {
+        if(n<=0){
+            return false;
+        }
+        while(n%4==0){
+            n/=4;
+        }
+        return n==1;
+    }
+};
