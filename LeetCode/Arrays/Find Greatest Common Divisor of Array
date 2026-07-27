@@ -1,0 +1,21 @@
+Code:
+
+class Solution {
+public:
+    int findGCD(vector<int>& nums) {
+        int n=nums.size();
+
+        sort(nums.begin(),nums.end());
+        int maxi=nums[n-1];
+        int mini=nums[0];
+        
+        int gcd_no=1;
+        for(int i=1;i<=mini;i++){
+            if(mini%i==0 && maxi%i==0){
+                gcd_no=i;
+            }
+        }
+
+        return gcd_no;
+    }
+};
